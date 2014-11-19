@@ -1,5 +1,6 @@
 /*
 (Easy): A Flagon of Flags
+http://www.reddit.com/r/dailyprogrammer/comments/2l6dll/11032014_challenge_187_easy_a_flagon_of_flags/
 
 In the command-line world, programs are operated not with graphical user interfaces but with command line flags. These flags are what the operator uses to pass parameters to the program. The standard form of flag starts with a double hyphen -- and consists of a word in lower-case-separated-by-hyphens. For example, to forcefully remove a directory recursively on Unix based systems, the command used may be:
 rm --recursive --force dir/
@@ -69,3 +70,5 @@ parameter: 12
 flag: verbose
 flag: address (value: 192.168.0.44)
 */
+
+// TODO!!!
