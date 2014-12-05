@@ -9,6 +9,17 @@ class NamePairs
   def printNames
     print "#{@short} : #{@long} \n"
   end
+
+  # sorting function
+  def <=> (l)
+    if l.short.length > @short.length
+      return -1
+    elsif l.short.length < @short.length
+      return 1
+    else
+      return 0
+    end
+  end
 end
 
 
@@ -17,15 +28,17 @@ end
 
 def main()
 
-  print 'Enter filename :'
-#  fname = './enable1.txt' #  gets.chomp
+  print 'Enter filename (default ./enable1.txt):'
   fname = gets.chomp
+  if fname.length == 0
+    fname = './enable1.txt'
+  end
   puts
 
+  begin
   names = Array.new
   open(fname) do |file|
     file.each do |line|
-#      puts line
 
       fp = NamePairs.new
       fp.long = line.chomp
@@ -39,28 +52,26 @@ def main()
         fp.short = s
         names.push(fp)
       end
-
     end
   end
 
-  names.each do |n|
-    n.printNames
+  rescue
+    puts "Bad filename #{fname}"
+    return
   end
 
+  sortedNames = names.sort
+
+  for j in 1..10
+    sortedNames[-1 *j].printNames
+  end
+
+  10.times do |i|
+    sortedNames[i].printNames
+  end
+
+
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
