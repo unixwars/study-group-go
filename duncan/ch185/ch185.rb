@@ -18,7 +18,8 @@ end
 def main()
 
   print 'Enter filename :'
-  fname = './enable1.txt' #  gets.chomp
+#  fname = './enable1.txt' #  gets.chomp
+  fname = gets.chomp
   puts
 
   names = Array.new
@@ -31,6 +32,10 @@ def main()
       s = String.new(fp.long)
       if s.start_with?('at')
         s[0..1] = '@'
+        if s.include?('at')
+          i = s.index('at')
+          s[i..i+1] = '@'
+        end
         fp.short = s
         names.push(fp)
       end
